@@ -15,5 +15,4 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 10000
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Djdk.tls.client.protocols=TLSv1.2", "-jar", "app.jar"]
